@@ -1,13 +1,13 @@
-# path:
-#   raw_path: ./data/raw/
-#   processed_path: ./data/processed/
-#   file_path: ./research/files/
-
-
-
-
-
 path:
-  raw_path: ../../data/raw/
-  processed_path: ../../data/processed/
-  file_path: ../../research/files/
+  raw_path: ./data/raw/
+  processed_path: ./data/processed/
+  file_path: ./research/files/
+
+
+
+
+
+# path:
+#   raw_path: ../../data/raw/
+#   processed_path: ../../data/processed/
+#   file_path: ../../research/files/
