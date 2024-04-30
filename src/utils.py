@@ -1,5 +1,6 @@
 import yaml
 import joblib
+import torch
 
 
 def params():
@@ -23,3 +24,14 @@ def load(filename):
         raise ValueError(
             "The filename is empty. Please check the filename and try again."
         )
+
+
+def device_init(device="mps"):
+    if device == "mps":
+        return torch.device("mps" if torch.backends.mps.is_available() else "cpu")
+
+    elif device == "cuda":
+        return torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+    else:
+        return torch.device("cuda")
