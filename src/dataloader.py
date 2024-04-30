@@ -280,6 +280,9 @@ if __name__ == "__main__":
     parser.add_argument(
         "--split_size", default=0.20, type=float, help="Split size".capitalize()
     )
+    parser.add_argument(
+        "--batch_size", default=32, type=int, help="Batch size".capitalize()
+    )
     args = parser.parse_args()
 
     if args.image_path:
@@ -287,6 +290,7 @@ if __name__ == "__main__":
             image_path=args.image_path,
             image_size=args.image_size,
             split_size=args.split_size,
+            batch_size=args.batch_size,
         )
 
         loader.unzip_folder()
