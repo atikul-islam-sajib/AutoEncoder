@@ -1,7 +1,5 @@
 import sys
 import os
-import torch
-import torch.nn as nn
 import torch.optim as optim
 from torch.optim.lr_scheduler import StepLR
 
@@ -41,19 +39,37 @@ def helpers(**kwargs):
     SGD = kwargs["SGD"]
     lr_scheduler = kwargs["lr_scheduler"]
 
+    config = params()
+
     model = AutoEncoder(in_channels=3)
 
     if adam:
-        optimizer = optim.Adam(params=model.parameters(), lr=lr, betas=(0.5, 0.999))
+        optimizer = optim.Adam(
+            params=model.parameters(),
+            lr=lr,
+            betas=(config["model"]["beta1"], config["model"]["beta2"]),
+        )
 
         if lr_scheduler:
-            scheduler = StepLR(optimizer=optimizer, step_size=10, gamma=0.5)
+            scheduler = StepLR(
+                optimizer=optimizer,
+                step_size=config["model"]["step_size"],
+                gamma=config["model"]["gamma"],
+            )
 
     elif SGD:
-        optimizer = optim.SGD(params=model.parameters(), lr=lr, momentum=0.9)
+        optimizer = optim.SGD(
+            params=model.parameters(),
+            lr=lr,
+            momentum=config["model"]["momentum"],
+        )
 
         if lr_scheduler:
-            scheduler = StepLR(optimizer=optimizer, step_size=10, gamma=0.5)
+            scheduler = StepLR(
+                optimizer=optimizer,
+                step_size=config["model"]["step_size"],
+                gamma=["model"]["gamma"],
+            )
 
     dataloader = load_dataloader()
 
