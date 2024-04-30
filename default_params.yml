@@ -1,0 +1,12 @@
+# path:
+#   raw_path: ./data/raw/
+#   processed_path: ./data/processed
+
+
+
+
+
+path:
+  raw_path: ../../data/raw/
+  processed_path: ../../data/processed/
+  file_path: ../../research/files/
