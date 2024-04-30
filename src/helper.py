@@ -16,12 +16,12 @@ def load_dataloader():
     if os.path.exists(config["path"]["processed_path"]):
         train_dataloader = load(
             filename=os.path.join(
-                config["path"]["processed_path"], "train_dataloader.pth"
+                config["path"]["processed_path"], "train_dataloader.pkl"
             )
         )
         test_dataloader = load(
             filename=os.path.join(
-                config["path"]["processed_path"], "test_dataloader.pth"
+                config["path"]["processed_path"], "test_dataloader.pkl"
             )
         )
 
@@ -78,7 +78,7 @@ def helpers(**kwargs):
     return {
         "model": model,
         "optimizer": optimizer,
-        "scheduler": scheduler,
+        # "scheduler": scheduler,
         "train_dataloader": dataloader["train_dataloader"],
         "test_dataloader": dataloader["test_dataloader"],
         "criterion": criterion,
