@@ -1,5 +1,6 @@
 import sys
 import os
+import torch.nn as nn
 import torch.optim as optim
 from torch.optim.lr_scheduler import StepLR
 
@@ -72,6 +73,7 @@ def helpers(**kwargs):
             )
 
     dataloader = load_dataloader()
+    criterion = nn.MSELoss(reduction="mean")
 
     return {
         "model": model,
@@ -79,6 +81,7 @@ def helpers(**kwargs):
         "scheduler": scheduler,
         "train_dataloader": dataloader["train_dataloader"],
         "test_dataloader": dataloader["test_dataloader"],
+        "criterion": criterion,
     }
 
 
