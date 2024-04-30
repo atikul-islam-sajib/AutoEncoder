@@ -4,6 +4,7 @@ path:
   file_path: ./research/files/
   train_models: ./checkpoints/train_models/
   best_model: ./checkpoints/best_models/
+  train_images: ./outputs/train_images/
 
 model:
   beta1: 0.5

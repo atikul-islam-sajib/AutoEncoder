@@ -5,6 +5,7 @@ from tqdm import tqdm
 import numpy as np
 import torch
 import torch.nn as nn
+from torchvision.utils import save_image
 
 sys.path.append("src/")
 
@@ -150,12 +151,32 @@ class Trainer:
                     test_loss=np.mean(test_loss),
                 )
 
+                self.saved_checkpoints(epoch=epoch)
+                self.saved_best_model(epoch=epoch + 1, loss=np.mean(test_loss))
+
             except Exception as e:
                 print("The exception was: %s" % e)
 
             else:
-                self.saved_checkpoints(epoch=epoch)
-                self.saved_best_model(epoch=epoch + 1, loss=np.mean(test_loss))
+                blurred, _ = next(iter(self.test_dataloader))
+
+                predicted_sharp = self.model(blurred)
+
+                if os.path.exists(self.config["path"]["train_images"]):
+                    save_image(
+                        predicted_sharp,
+                        os.path.join(
+                            self.config["path"]["train_images"],
+                            "images{}.jpg".format(epoch + 1),
+                        ),
+                        nrow=4,
+                        normalized=True,
+                    )
+
+                else:
+                    raise FileNotFoundError(
+                        "Train images folder does not exist. Please create a folder.".capitalize()
+                    )
 
 
 if __name__ == "__main__":
