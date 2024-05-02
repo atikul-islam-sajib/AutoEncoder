@@ -19,7 +19,7 @@ class AutoEncoder(nn.Module):
 
         self.in_channels = in_channels
         self.out_channels = 64
-        self.num_repetitive = 1
+        self.num_repetitive = 5
 
         self.layers = []
 
