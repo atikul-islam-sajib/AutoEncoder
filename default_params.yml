@@ -4,14 +4,18 @@ path:
   file_path: ./research/files/
   train_models: ./checkpoints/train_models/
   best_model: ./checkpoints/best_models/
+  train_history: ./checkpoints/train_history/
   train_images: ./outputs/train_images/
+  test_image: ./outputs/test_image/
+  train_gif: ./outputs/train_gif/
 
 model:
   beta1: 0.5
   beta2: 0.999
   momentum: 0.90
   step_size: 10
-  gamma: 0.5
+  gamma: 0.85
+  weight_clip: 0.01
 
 
 

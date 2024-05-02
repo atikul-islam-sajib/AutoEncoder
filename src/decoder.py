@@ -37,25 +37,25 @@ class DecoderBlock(nn.Module):
 
         if self.is_last:
             self.layers["Tanh"] = nn.Tanh()
-        else:
-            self.layers["conv"] = nn.Conv2d(
-                in_channels=self.out_channels,
-                out_channels=self.out_channels,
-                kernel_size=3,
-                stride=1,
-                padding=1,
-            )
-            self.layers["relu"] = nn.ReLU(inplace=True)
+        # else:
+        # self.layers["conv"] = nn.Conv2d(
+        #     in_channels=self.out_channels,
+        #     out_channels=self.out_channels,
+        #     kernel_size=3,
+        #     stride=1,
+        #     padding=1,
+        # )
+        # self.layers["relu"] = nn.ReLU(inplace=True)
 
-            self.layers["conv_1"] = nn.Conv2d(
-                in_channels=self.out_channels,
-                out_channels=self.out_channels,
-                kernel_size=3,
-                stride=1,
-                padding=1,
-            )
-            self.layers["batch_norm"] = nn.BatchNorm2d(num_features=self.out_channels)
-            self.layers["relu_1"] = nn.ReLU(inplace=True)
+        # self.layers["conv_1"] = nn.Conv2d(
+        #     in_channels=self.out_channels,
+        #     out_channels=self.out_channels,
+        #     kernel_size=3,
+        #     stride=1,
+        #     padding=1,
+        # )
+        # self.layers["batch_norm"] = nn.BatchNorm2d(num_features=self.out_channels)
+        # self.layers["relu_1"] = nn.ReLU(inplace=True)
 
         return nn.Sequential(self.layers)
 

@@ -51,13 +51,6 @@ def helpers(**kwargs):
             betas=(config["model"]["beta1"], config["model"]["beta2"]),
         )
 
-        if lr_scheduler:
-            scheduler = StepLR(
-                optimizer=optimizer,
-                step_size=config["model"]["step_size"],
-                gamma=config["model"]["gamma"],
-            )
-
     elif SGD:
         optimizer = optim.SGD(
             params=model.parameters(),
@@ -65,20 +58,12 @@ def helpers(**kwargs):
             momentum=config["model"]["momentum"],
         )
 
-        if lr_scheduler:
-            scheduler = StepLR(
-                optimizer=optimizer,
-                step_size=config["model"]["step_size"],
-                gamma=["model"]["gamma"],
-            )
-
     dataloader = load_dataloader()
     criterion = nn.MSELoss(reduction="mean")
 
     return {
         "model": model,
         "optimizer": optimizer,
-        # "scheduler": scheduler,
         "train_dataloader": dataloader["train_dataloader"],
         "test_dataloader": dataloader["test_dataloader"],
         "criterion": criterion,

@@ -36,17 +36,17 @@ class EncoderBlock(nn.Module):
 
         self.layers["relu"] = nn.ReLU(inplace=True)
 
-        self.layers["conv_1"] = nn.Conv2d(
-            in_channels=self.out_channels,
-            out_channels=self.out_channels,
-            kernel_size=self.kernel,
-            stride=self.stride,
-            padding=self.padding,
-        )
+        # self.layers["conv_1"] = nn.Conv2d(
+        #     in_channels=self.out_channels,
+        #     out_channels=self.out_channels,
+        #     kernel_size=self.kernel,
+        #     stride=self.stride,
+        #     padding=self.padding,
+        # )
 
-        self.layers["batch_norm"] = nn.BatchNorm2d(num_features=self.out_channels)
+        # self.layers["batch_norm"] = nn.BatchNorm2d(num_features=self.out_channels)
 
-        self.layers["relu_1"] = nn.ReLU(inplace=True)
+        # self.layers["relu_1"] = nn.ReLU(inplace=True)
 
         self.layers["max_pool"] = nn.MaxPool2d(
             kernel_size=(self.kernel // self.kernel) * 2, stride=self.stride * 2

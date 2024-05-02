@@ -178,6 +178,7 @@ class Loader:
             )
 
             blurred, sharp = next(iter(test_dataloader))
+            blurred, sharp = blurred[0:16], sharp[0:16]
 
             for index, image in enumerate(sharp):
                 sharp_image = image.squeeze().permute(1, 2, 0).cpu().detach().numpy()
@@ -204,8 +205,8 @@ class Loader:
 
             plt.tight_layout()
 
-            if os.path.exists(config["path"]["file_path"]):
-                plt.savefig(os.path.join(config["path"]["file_path"], "images.jpg"))
+            if os.path.exists(config["path"]["test_image"]):
+                plt.savefig(os.path.join(config["path"]["test_image"], "images.jpg"))
 
             plt.show()
 
@@ -293,7 +294,7 @@ if __name__ == "__main__":
             batch_size=args.batch_size,
         )
 
-        loader.unzip_folder()
+        # loader.unzip_folder()
         loader.create_dataloader()
 
         loader.plot_images()
