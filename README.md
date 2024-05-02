@@ -1,9 +1,10 @@
 # Auto Encoder Implementation
 
+This project provides a complete framework for training and testing an AutoEncoder. It includes functionality for data preparation, model training, testing, and inference as well.
+
 <img src="https://github.com/atikul-islam-sajib/Research-Assistant-Work-/blob/main/images.jpg">
 
-
-This project provides a complete framework for training and testing an AutoEncoder. It includes functionality for data preparation, model training, testing, and inference as well.
+#### Auto Encoder Architecture
 
 <img src="https://images.squarespace-cdn.com/content/v1/62f1caa0a2cb083186ccce31/c3350b48-ff66-4e04-aa79-56cec8350ca2/autoencoder_architecture.png">
 
