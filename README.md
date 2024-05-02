@@ -178,7 +178,7 @@ test.test()
 ```
 
 ## Contributing
-Contributions to improve this implementation of CycleGAN are welcome. Please follow the standard fork-branch-pull request workflow.
+Contributions to improve this implementation of Image Deblurring are welcome. Please follow the standard fork-branch-pull request workflow.
 
 ## License
 Specify the license under which the project is made available (e.g., MIT License).
