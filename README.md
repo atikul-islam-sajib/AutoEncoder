@@ -76,7 +76,7 @@ This project is thoughtfully organized to support the development, training, and
 - **unittest/**
   - Unit tests ensuring code reliability, correctness, and functionality across various project components.
 
-### Dataset Organization for CycleGAN
+### Dataset Organization for AutoEncoder
 
 The dataset is organized into three categories for CycleGAN. Each category directly contains unpaired images and their corresponding  images stored.
 
